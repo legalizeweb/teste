@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Calculadora de Raiz Quadrada</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; background-color: #f9f9f9; }
+        .container { max-width: 400px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+        h1 { text-align: center; }
+        input[type=number], input[type=submit] {
+            width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc;
+        }
+        .resultado, .erro { text-align: center; font-weight: bold; margin-top: 20px; }
+        .erro { color: red; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Raiz Quadrada</h1>
+        <form method="post">
+            <input type="number" step="any" name="numero" placeholder="Digite um número" required>
+            <input type="submit" value="Calcular">
+        </form>
+
+        {% if resultado is not none %}
+            <div class="resultado">Raiz quadrada: {{ resultado }}</div>
+        {% elif erro %}
+            <div class="erro">{{ erro }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
